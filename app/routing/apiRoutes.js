@@ -31,6 +31,8 @@ module.exports = function(app) {
 
     friends.push(req.body);
 
-    // res.json(friends[bestFriendIndex]);
+    res.json(friends[bestFriendIndex]);
+
+    console.log(friends);
   });
 };
