@@ -1,0 +1,30 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	font-family: 'Baloo', cursive;
+	font-size: 4em;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+p {
+	text-align: center;
+	max-width: 60%;
+	line-height: 1.75;
+	margin: auto;
+	font-size: 1.2em;
+}
+
+footer {
+	text-align: right;
+}
+
+.btn {
+	margin: 30px;
+}
+
+form {
+	margin-top: 20px;
+}
