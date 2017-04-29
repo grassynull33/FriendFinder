@@ -7,6 +7,8 @@ In need of a friend? Oh boy, time to get on our app, and find that special someo
 
 ## Usage
 
+![screenshot 2017-04-28 20 16 41](https://cloud.githubusercontent.com/assets/21274043/25552473/a3ceca2c-2c4f-11e7-8a2b-223dd9afd040.png)
+
 To use our web service, simply go to our homepage and take our state-of-the-art survey. Immediately after submitting the survey, your perfect best friend will pop up. We also have an API you can access to the network's users and their personalized information. For research purposes.
 
 ## Requirements
