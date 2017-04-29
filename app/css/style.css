@@ -54,3 +54,11 @@ a {
 #bestFriendModal {
 	text-align: center;
 }
+
+span {
+	margin-left: 10px;
+	margin-right: 10px;
+	color: #777;
+	font-size: 20px;
+
+}
