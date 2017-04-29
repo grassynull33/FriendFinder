@@ -55,6 +55,11 @@ a {
 	text-align: center;
 }
 
+#bestFriendPhoto {
+	max-width: 100%;
+	height: auto;
+}
+
 span {
 	margin-left: 10px;
 	margin-right: 10px;
