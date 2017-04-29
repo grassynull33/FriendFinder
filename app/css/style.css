@@ -17,6 +17,7 @@ h1 {
 	font-family: 'Baloo', cursive;
 	font-size: 4em;
 	text-align: center;
+	margin-top: 75px;
 	margin-bottom: 20px;
 }
 
@@ -42,7 +43,7 @@ footer {
 }
 
 form {
-	margin-top: 20px;
+	margin-top: 40px;
 }
 
 a {
