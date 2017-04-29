@@ -4,6 +4,7 @@
 	<title>Survey - Paddy's Pub Social Network</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Link static CSS -->
 	<link rel="stylesheet" type="text/css" href="/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Baloo|Roboto" rel="stylesheet">
 </head>
@@ -132,7 +133,8 @@
 		<div class="text-center">
 			<button id="submitBtn" type="submit" class="btn btn-success btn-lg">Submit</button>
 		</div>
-
+		
+		<!-- Modal after survey completion -->
 		<div id="bestFriendModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -171,6 +173,8 @@
 <script type="text/javascript">
 	$("#submitBtn").on("click", function(event) {
 		event.preventDefault();
+
+		// Form validation
 		var valid = true;
 
 		if($("#name").val() === "" || $("#photo").val() === "") {
@@ -199,12 +203,14 @@
 
 			var currentURL = window.location.origin;
 
+			// Ajax call for receiving response after POST req
 			$.post(currentURL + "/api/friends", newUser, function(data) {
 				$("#bestFriend").text(data.name);
 				$("#bestFriendPhoto").attr("src", data.photo);
 				$("#bestFriendModal").modal("toggle");
 			});
 		} else {
+			// If a required field is missing, show alert
 			alert("Survey is incomplete!");
 		}
 	});
