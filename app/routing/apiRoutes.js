@@ -12,6 +12,11 @@ module.exports = function(app) {
     // Receive user details (name, photo, scores)
     var user = req.body;
 
+    // parseInt for scores
+    for(var i = 0; i < user.scores.length; i++) {
+      user.scores[i] = parseInt(user.scores[i]);
+    }
+
     // default friend match is the first friend but result will be whoever has the minimum difference in scores
     var bestFriendIndex = 0;
     var minimumDifference = 40;
@@ -33,7 +38,7 @@ module.exports = function(app) {
     }
 
     // after finding match, add user to friend array
-    friends.push(req.body);
+    friends.push(user);
 
     // send back to browser the best friend match
     res.json(friends[bestFriendIndex]);
