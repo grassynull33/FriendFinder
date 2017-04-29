@@ -3,7 +3,7 @@
 In need of a friend? Oh boy, time to get on our app, and find that special someone. After filling out a quick survey, our friend-matching algorithm will pair you with an individual in our network.
 
 ## Live Link
- - www.example.com
+ - https://murmuring-island-94264.herokuapp.com/
 
 ## Usage
 
@@ -16,7 +16,7 @@ To use our web service, simply go to our homepage and take our state-of-the-art 
 - 10-question survey to assess uniqueness of users
 - Use `express`, `body-parser`, and `path` npm packages in the `server.js` file
 - Separate JavaScript files for routing (`htmlRoutes.js` and `apiRoutes.js`)
-- Appropriate GET and POST routes for serving HTML pages and API calls
+- Appropriate GET and POST routes for serving HTML pages and API callshttps://murmuring-island-94264.herokuapp.com/
 - Separate file for storing friends (`friends.js`)
 - Calculate best match for user once survey is completed and return that match to the user
 
