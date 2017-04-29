@@ -21,7 +21,7 @@
 			<div class="form-group">
 				<label for="question1">I like to do janitorial work.</label>
 				<select class="form-control" id="question1">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -32,7 +32,7 @@
 			<div class="form-group">
 				<label for="question2">I have some bird-like features (or so I've been told).</label>
 				<select class="form-control" id="question2">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -43,7 +43,7 @@
 			<div class="form-group">
 				<label for="question3">I think very highly of myself.</label>
 				<select class="form-control" id="question3">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -54,7 +54,7 @@
 			<div class="form-group">
 				<label for="question4">I enjoy martial arts.</label>
 				<select class="form-control" id="question4">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -65,7 +65,7 @@
 			<div class="form-group">
 				<label for="question5">I read as a hobby.</label>
 				<select class="form-control" id="question5">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -76,7 +76,7 @@
 			<div class="form-group">
 				<label for="question6">I am God's gift to the opposite sex.</label>
 				<select class="form-control" id="question6">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -87,7 +87,7 @@
 			<div class="form-group">
 				<label for="question7">I don't so well with the opposite sex.</label>
 				<select class="form-control" id="question7">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -98,7 +98,7 @@
 			<div class="form-group">
 				<label for="question8">I am good with money.</label>
 				<select class="form-control" id="question8">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -109,7 +109,7 @@
 			<div class="form-group">
 				<label for="question9">I work out at the gym often.</label>
 				<select class="form-control" id="question9">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -120,7 +120,7 @@
 			<div class="form-group">
 				<label for="question10">I consider myself aggressive.</label>
 				<select class="form-control" id="question10">
-					<option></option>
+					<option value="empty"></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -138,7 +138,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h1 class="modal-title">Your New Best Friend</h1>
+						<h3 class="modal-title">Your New Best Friend</h1>
 					</div>
 					<div class="modal-body">
 						<h2 id="bestFriend"></h2>
@@ -169,34 +169,41 @@
 <script type="text/javascript">
 	$("#submitBtn").on("click", function(event) {
 		event.preventDefault();
+		var valid = true;
 
-		var newUser = {
-			name: $("#name").val().trim(),
-			photo: $("#photo").val().trim(),
-			scores: [
-				$("#question1").val(),
-				$("#question2").val(),
-				$("#question3").val(),
-				$("#question4").val(),
-				$("#question5").val(),
-				$("#question6").val(),
-				$("#question7").val(),
-				$("#question8").val(),
-				$("#question9").val(),
-				$("#question10").val()
-			]
-		};
+		if($("#name").val() === "" || $("#photo").val() === "") {
+			valid = false;
+		} else if($("#question1").val() === "empty" || $("#question2").val() === "empty" || $("#question3").val() === "empty" || $("#question4").val() === "empty" || $("#question5").val() === "empty" || $("#question6").val() === "empty" || $("#question7").val() === "empty" || $("#question8").val() === "empty" || $("#question9").val() === "empty" || $("#question10").val() === "empty") {
+			valid = false;
+		}
 
-		console.log(newUser);
+		if(valid === true) {
+			var newUser = {
+				name: $("#name").val().trim(),
+				photo: $("#photo").val().trim(),
+				scores: [
+					$("#question1").val(),
+					$("#question2").val(),
+					$("#question3").val(),
+					$("#question4").val(),
+					$("#question5").val(),
+					$("#question6").val(),
+					$("#question7").val(),
+					$("#question8").val(),
+					$("#question9").val(),
+					$("#question10").val()
+				]
+			};
 
-		var currentURL = window.location.origin;
+			var currentURL = window.location.origin;
 
-		$.post(currentURL + "/api/friends", newUser, function(data) {
-			$("#bestFriend").text(data.name);
-			console.log(data.photo);
-			$("#bestFriendPhoto").attr("src", data.photo);
-
-			$("#bestFriendModal").modal("toggle");
-		});
+			$.post(currentURL + "/api/friends", newUser, function(data) {
+				$("#bestFriend").text(data.name);
+				$("#bestFriendPhoto").attr("src", data.photo);
+				$("#bestFriendModal").modal("toggle");
+			});
+		} else {
+			alert("Survey is incomplete!");
+		}
 	});
 </script>
